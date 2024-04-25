@@ -2,7 +2,7 @@ import os
 from src.api_extarction import GuardianAPI
 from src.utility import setup_logger
 from datetime import datetime
-
+from src.transformation_analysis import count_trudeau_articles
 
 def main():
     logger = setup_logger(__name__)
@@ -17,7 +17,8 @@ def main():
         df = guardianapi.results_to_dataframe(articles, search_query)
        
         if df is not None:
-            print(df.head())
+             article_count, avg_count = count_trudeau_articles(df)
+             print(f"the average article per day is {avg_count:.2f}")
         else:
             logger.warning("No DataFrame was created.")
 

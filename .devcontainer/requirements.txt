@@ -1,10 +1,9 @@
 pandas==1.4.2
-numpy==1.23.5  
-requests==2.28.1  
-plotly==5.10.0  
-dash==2.6.2 
+numpy==1.23.5
+requests==2.28.1
+plotly==5.10.0
+dash==2.6.2
 pytest
 configparser
- 
-
-
+duckdb==0.10.2
+requests-mock
