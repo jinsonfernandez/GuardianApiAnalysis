@@ -21,7 +21,7 @@ class GuardianAPI:
             'q': search_query.replace(' ', '%20'),
             'from-date': from_date,
             'to-date': to_date,
-            'page-size': 100,
+            'page-size': 200,
             'api-key': self.GUARDIAN_API_KEY,
             'show-fields': 'headline,byline,sectionName,webPublicationDate'
         }

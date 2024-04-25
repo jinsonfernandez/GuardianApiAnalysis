@@ -1,1 +1,1 @@
-$ export PYTHONPATH="/workspaces/GuardianApiAnalysis/guardian_media_analysis:$PYTHONPATH"
+export PYTHONPATH="/workspaces/GuardianApiAnalysis/guardian_media_analysis"
