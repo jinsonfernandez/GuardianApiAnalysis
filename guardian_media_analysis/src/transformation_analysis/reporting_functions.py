@@ -3,6 +3,9 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import seaborn as sns
 
 class DataProcessor:
     """
@@ -140,10 +143,10 @@ class DataProcessor:
             unusual_dates (list): A list of unusual event dates.
         """
         for date in unusual_dates:
-            start_date = pd.to_datetime(date).date()  # Convert to datetime.date for comparison
+            start_date = pd.to_datetime(date).date() 
 
             event_articles = self.df[
-                (self.df['webPublicationDate'].dt.date == start_date) &  # Ensure comparison is with datetime.date
+                (self.df['webPublicationDate'].dt.date == start_date) &  
                 (self.df['type'] == 'article')
             ]
 
@@ -199,7 +202,6 @@ class DataVisualizer:
         """
         grouped_data = con.execute(query).df()
 
-        # Set the x-axis title and tick format based on the group_by parameter
         if group_by == 'month':
             x_title = 'Month'
             tick_format = '%b %Y'
@@ -246,16 +248,15 @@ class DataVisualizer:
       
         fig = go.Figure()
 
-        # Create a text string with the date and number of articles for each data point
         hover_text = [f"Date: {date}<br>Number of Articles: {count}" for date, count in
                       zip(article_count['Date'], article_count['No_of_articles'])]
 
         fig.add_trace(go.Box(
             y=article_count['No_of_articles'],
             name='Number of Articles',
-            boxpoints='suspectedoutliers',  # Display suspected outliers
-            text=hover_text,  # Set the hover text
-            hoverinfo='text',  # Display only the hover text
+            boxpoints='suspectedoutliers',  
+            text=hover_text,  
+            hoverinfo='text',  
             marker=dict(
                 color='rgb(8,81,156)',
                 outliercolor='rgba(219, 64, 82, 0.6)',

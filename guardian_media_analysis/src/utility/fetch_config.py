@@ -6,5 +6,5 @@ def fetch_config():
     config_path = os.path.join(base_dir, 'config.ini')
     config = configparser.ConfigParser()
     config.read(config_path)
-    return config, config_path  # Ensure both are returned
+    return config, config_path 
 
