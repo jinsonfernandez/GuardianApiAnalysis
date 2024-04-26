@@ -7,3 +7,7 @@ pytest
 configparser
 duckdb==0.10.2
 requests-mock
+nbformat>=4.2.0
+wordcloud
+matplotlib
+scikit-learn
